@@ -14,6 +14,7 @@
 		0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10B21329ED800C74BCD /* ViewController.swift */; };
 		0A97F10E2132E7F900C74BCD /* ListOfNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */; };
 		0A97F1102132E82000C74BCD /* ListOfFeedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */; };
+		0A97F112213308BF00C74BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F111213308BF00C74BCD /* GoogleService-Info.plist */; };
 		98C431DACAD4B08AF90E6BBB /* Pods_RSSReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD66E560C4846B4EB9B127D /* Pods_RSSReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		0A97F10B21329ED800C74BCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfNewsTableViewController.swift; sourceTree = "<group>"; };
 		0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFeedsTableViewController.swift; sourceTree = "<group>"; };
+		0A97F111213308BF00C74BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8562D423CAFA62CCC77D1B97 /* Pods-RSSReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSReader/Pods-RSSReader.debug.xcconfig"; sourceTree = "<group>"; };
 		9F14F7F98557D35FFD6B7D2E /* Pods-RSSReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSReader.release.xcconfig"; path = "Target Support Files/Pods-RSSReader/Pods-RSSReader.release.xcconfig"; sourceTree = "<group>"; };
 		BCD66E560C4846B4EB9B127D /* Pods_RSSReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +52,6 @@
 				8562D423CAFA62CCC77D1B97 /* Pods-RSSReader.debug.xcconfig */,
 				9F14F7F98557D35FFD6B7D2E /* Pods-RSSReader.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,6 +90,7 @@
 				0A97F0FD213296EC00C74BCD /* Assets.xcassets */,
 				0A97F0FF213296EC00C74BCD /* LaunchScreen.storyboard */,
 				0A97F102213296EC00C74BCD /* Info.plist */,
+				0A97F111213308BF00C74BCD /* GoogleService-Info.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -180,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A97F101213296EC00C74BCD /* LaunchScreen.storyboard in Resources */,
+				0A97F112213308BF00C74BCD /* GoogleService-Info.plist in Resources */,
 				0A97F0FE213296EC00C74BCD /* Assets.xcassets in Resources */,
 				0A97F0FC213296EA00C74BCD /* Main.storyboard in Resources */,
 			);
@@ -193,16 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RSSReader/Pods-RSSReader-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -217,15 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-RSSReader-checkManifestLockResult.txt",
 			);

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zi5-1G-VYY">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +15,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ListOfNewsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UZ0-gy-KXY" customClass="ListOfNewsTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YCs-YZ-LhI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -22,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3lC-Yj-Xl6" id="SxG-6p-amt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -49,7 +50,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="UZ0-gy-KXY" kind="relationship" relationship="viewControllers" id="q7E-OD-1ld"/>
-                        <segue destination="N0l-Yv-X4y" kind="relationship" relationship="viewControllers" id="dAe-iF-sG4"/>
+                        <segue destination="N0l-Yv-X4y" kind="relationship" relationship="viewControllers" id="h02-lV-HKe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIe-Ut-ble" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,9 +60,9 @@
         <!--Feeds-->
         <scene sceneID="hmt-PO-nuI">
             <objects>
-                <tableViewController storyboardIdentifier="ListOfFeedsTableViewController" id="N0l-Yv-X4y" customClass="ListOfFeedsTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListOfFeedsTableViewController" title="Feeds" id="N0l-Yv-X4y" customClass="ListOfFeedsTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jPh-z0-n28">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="RJG-LE-itq">
@@ -69,7 +70,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Feeds" id="j5f-RZ-UPH">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="akH-uT-9J2"/>
+                                    <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="akH-uT-9J2">
+                                        <connections>
+                                            <segue destination="HP3-yi-M4x" kind="show" id="Bzk-cH-vHw"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -78,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AxA-s6-Jz3" id="ABv-8B-ONp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -88,11 +93,91 @@
                             <outlet property="delegate" destination="N0l-Yv-X4y" id="BN3-hm-Upo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feeds" id="NOb-Qm-Fti"/>
+                    <tabBarItem key="tabBarItem" title="Feeds" id="Teo-rq-rSe"/>
+                    <navigationItem key="navigationItem" id="kJS-sN-9je"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krZ-Wd-pkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="429"/>
+            <point key="canvasLocation" x="721" y="453"/>
+        </scene>
+        <!--Browser View Controller-->
+        <scene sceneID="pax-Dr-oB4">
+            <objects>
+                <viewController storyboardIdentifier="BrowserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HP3-yi-M4x" customClass="BrowserViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mb9-St-Nsj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbX-cw-5j2">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUE-0P-JnQ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Added Feeds" leftItemsSupplementBackButton="YES" id="MmI-bk-4gi">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="plain" id="iv0-eF-c7o"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08n-JP-mlf">
+                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="7Fm-ZS-Xcd">
+                                        <connections>
+                                            <action selector="backBtnAction:" destination="HP3-yi-M4x" id="Pa1-fM-Dq6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="17" style="plain" systemItem="fixedSpace" id="wTe-eP-DW4"/>
+                                    <barButtonItem systemItem="fastForward" id="W4g-T1-1Ic">
+                                        <connections>
+                                            <action selector="forwardBtnAction:" destination="HP3-yi-M4x" id="f3h-Mu-26k"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VcB-8j-hnC"/>
+                                    <barButtonItem systemItem="refresh" id="qcl-8e-mji">
+                                        <connections>
+                                            <action selector="refreshBtnAction:" destination="HP3-yi-M4x" id="Qep-1c-PfU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2YD-fg-FI7">
+                                <rect key="frame" x="177" y="396" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="leading" secondItem="mbX-cw-5j2" secondAttribute="leading" id="4EI-V4-WIg"/>
+                            <constraint firstItem="2YD-fg-FI7" firstAttribute="centerY" secondItem="Mb9-St-Nsj" secondAttribute="centerY" id="9UH-WG-NkE"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="trailing" secondItem="qFE-Z5-4C3" secondAttribute="trailing" id="A3T-dd-qeu"/>
+                            <constraint firstItem="08n-JP-mlf" firstAttribute="top" secondItem="mbX-cw-5j2" secondAttribute="bottom" id="GYP-rU-l61"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="leading" secondItem="qFE-Z5-4C3" secondAttribute="leading" id="KIe-oS-Sm1"/>
+                            <constraint firstItem="08n-JP-mlf" firstAttribute="bottom" secondItem="qFE-Z5-4C3" secondAttribute="bottom" id="Mi6-fR-o1C"/>
+                            <constraint firstItem="2YD-fg-FI7" firstAttribute="centerX" secondItem="Mb9-St-Nsj" secondAttribute="centerX" id="NiY-yX-vrD"/>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="top" secondItem="qFE-Z5-4C3" secondAttribute="top" id="Pn7-4L-cIy"/>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="trailing" secondItem="08n-JP-mlf" secondAttribute="trailing" id="Rpv-Dc-eVD"/>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="leading" secondItem="08n-JP-mlf" secondAttribute="leading" id="YRR-FQ-XtQ"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="top" secondItem="fUE-0P-JnQ" secondAttribute="bottom" id="sLd-JM-oi9"/>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="trailing" secondItem="mbX-cw-5j2" secondAttribute="trailing" id="unU-fj-8m7"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="top" secondItem="fUE-0P-JnQ" secondAttribute="bottom" id="wEQ-fC-Ahr"/>
+                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="top" secondItem="qFE-Z5-4C3" secondAttribute="top" id="xZy-7M-CNu"/>
+                            <constraint firstItem="qFE-Z5-4C3" firstAttribute="bottom" secondItem="08n-JP-mlf" secondAttribute="bottom" id="yhw-cG-TnX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qFE-Z5-4C3"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="2YD-fg-FI7" id="KtR-t9-w9X"/>
+                        <outlet property="backToFeedsButton" destination="iv0-eF-c7o" id="Vdg-1i-wxX"/>
+                        <outlet property="backwardButton" destination="7Fm-ZS-Xcd" id="P4E-x1-Z1h"/>
+                        <outlet property="forwardButton" destination="W4g-T1-1Ic" id="kXv-2t-P7e"/>
+                        <outlet property="refreshButton" destination="qcl-8e-mji" id="Tzd-Ob-OfR"/>
+                        <outlet property="webView" destination="mbX-cw-5j2" id="TAw-1j-Hd7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZn-21-0zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="475.86206896551727"/>
         </scene>
     </scenes>
 </document>

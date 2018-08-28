@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8A863194F8A31694C22964DB035EE9A"
+               BlueprintIdentifier = "1319CFEC227F2BD0F634F69AF38A34E0"
                BuildableName = "Pods_RSSReader.framework"
                BlueprintName = "Pods-RSSReader"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B8A863194F8A31694C22964DB035EE9A"
+            BlueprintIdentifier = "1319CFEC227F2BD0F634F69AF38A34E0"
             BuildableName = "Pods_RSSReader.framework"
             BlueprintName = "Pods-RSSReader"
             ReferencedContainer = "container:Pods.xcodeproj">

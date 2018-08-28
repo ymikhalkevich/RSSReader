@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */; };
 		0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */; };
 		0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F0F6213296EA00C74BCD /* AppDelegate.swift */; };
 		0A97F0FC213296EA00C74BCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FA213296EA00C74BCD /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksOfFeeds.swift; sourceTree = "<group>"; };
 		0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		0A97F0F3213296EA00C74BCD /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A97F0F6213296EA00C74BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0A133CFE2135B56800C4DFF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0A97F0EA213296EA00C74BCD = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		0A97F0F5213296EA00C74BCD /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				0A133CFE2135B56800C4DFF4 /* Model */,
 				0A97F1082132973600C74BCD /* Support Files */,
 				0A97F10A213297D800C74BCD /* ViewController */,
 				0A97F1092132977400C74BCD /* View */,
@@ -201,11 +212,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RSSReader/Pods-RSSReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -240,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */,
+				0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */,
 				0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */,
 				0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */,
 				0A97F1102132E82000C74BCD /* ListOfFeedsTableViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */; };
+		0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */; };
 		0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */; };
 		0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F0F6213296EA00C74BCD /* AppDelegate.swift */; };
 		0A97F0FC213296EA00C74BCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FA213296EA00C74BCD /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksOfFeeds.swift; sourceTree = "<group>"; };
+		0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		0A97F0F3213296EA00C74BCD /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A97F0F6213296EA00C74BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */,
 				0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */,
 				0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */,
+				0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */,
 				0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */,
+				0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */,
 				0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */,
 				0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */,
 				0A97F1102132E82000C74BCD /* ListOfFeedsTableViewController.swift in Sources */,

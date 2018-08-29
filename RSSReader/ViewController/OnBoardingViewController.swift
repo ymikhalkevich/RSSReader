@@ -56,11 +56,22 @@ class OnBoardingViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTexField.resignFirstResponder()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "GoToApplication", sender: self)
+        }
+    }
     /*
     // MARK: - Navigation
 

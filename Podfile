@@ -7,6 +7,7 @@ target 'RSSReader' do
 
   # Pods for RSSReader
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 pod 'FeedKit', '~> 8.0'
 
 end

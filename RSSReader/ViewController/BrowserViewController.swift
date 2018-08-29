@@ -15,8 +15,8 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
     @IBOutlet weak var backwardButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var backToFeedsButton: UIBarButtonItem!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let application = UIApplication.shared
     
     override func viewDidLoad() {
@@ -32,7 +32,6 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
               print("incorrect URL")
         }
         
-       
         // Do any additional setup after loading the view.
     }
 
@@ -57,10 +56,11 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
         isActivityIndicator(works: false, indicator: activityIndicator)
         if webView.canGoForward {
             self.forwardButton.isEnabled = true
-        } else if webView.canGoBack {
+        } else
+            if webView.canGoBack {
                 self.backwardButton.isEnabled = true
             }
-        }
+    }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
@@ -81,7 +81,6 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
     @IBAction func refreshBtnAction(_ sender: UIBarButtonItem) {
         webView.reload()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

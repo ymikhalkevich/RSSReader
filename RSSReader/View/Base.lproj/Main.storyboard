@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zi5-1G-VYY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DN6-QP-Mmo">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,6 +40,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOU-gG-qVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="614" y="-269"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ccS-LR-6ox">
+            <objects>
+                <viewController id="DN6-QP-Mmo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NVZ-3c-c5K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="j25-3q-rD3">
+                                <rect key="frame" x="20" y="398" width="335" height="76"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1r7-sn-XLN">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-1d-xe6">
+                                        <rect key="frame" x="0.0" y="46" width="335" height="30"/>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1r7-sn-XLN" firstAttribute="leading" secondItem="j25-3q-rD3" secondAttribute="leadingMargin" id="4cq-Ky-ko4"/>
+                                    <constraint firstItem="dE2-1d-xe6" firstAttribute="leading" secondItem="j25-3q-rD3" secondAttribute="leadingMargin" id="4yn-7M-cUu"/>
+                                    <constraint firstItem="1r7-sn-XLN" firstAttribute="trailing" secondItem="j25-3q-rD3" secondAttribute="trailingMargin" id="Mnj-Ig-fzG"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="dE2-1d-xe6" secondAttribute="trailing" id="agv-Ma-ps6"/>
+                                    <constraint firstAttribute="trailing" secondItem="1r7-sn-XLN" secondAttribute="trailing" id="sRD-xu-x8A"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-Fl-2tW">
+                                <rect key="frame" x="20" y="482" width="335" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1m-mh-h2o">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Sign in"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-IO-gf2">
+                                        <rect key="frame" x="224" y="0.0" width="111" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Create accaunt"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-Rf-S3L">
+                                <rect key="frame" x="67" y="103" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oLw-Ll-gfy">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                        <color key="backgroundColor" red="0.73684607404023716" green="0.93559123654985865" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="fSq-JU-aza"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j25-3q-rD3" firstAttribute="centerY" secondItem="NVZ-3c-c5K" secondAttribute="centerY" constant="30" id="DNE-kD-R92"/>
+                            <constraint firstItem="j25-3q-rD3" firstAttribute="centerX" secondItem="NVZ-3c-c5K" secondAttribute="centerX" id="Q7w-5Z-8Nw"/>
+                            <constraint firstItem="j25-3q-rD3" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="Sb6-yk-TDE"/>
+                            <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="2Qp-Fl-2tW" secondAttribute="trailing" constant="20" id="ZDO-KS-VeZ"/>
+                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="top" secondItem="j25-3q-rD3" secondAttribute="bottom" constant="8" id="caa-Bl-cRj"/>
+                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="gDW-ec-H7H"/>
+                            <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="j25-3q-rD3" secondAttribute="trailing" constant="20" id="nRj-CZ-6uy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NwZ-xt-3cX"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKp-4n-8oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-996" y="89.408866995073893"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MG8-79-Nmk">

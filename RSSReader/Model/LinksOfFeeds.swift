@@ -18,6 +18,9 @@ struct LinksOfFeeds  {
     
     func getStoredFeeddsCount () -> Int? {
         return listOfLinks.count
+       // let a : [Int] = 
     }
+    
+    
     
 }

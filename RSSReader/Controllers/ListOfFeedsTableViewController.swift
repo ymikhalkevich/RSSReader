@@ -31,11 +31,6 @@ class ListOfFeedsTableViewController: UITableViewController {
             self.listOfFeeds = newItems
             self.tableView.reloadData()
         })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,13 +38,6 @@ class ListOfFeedsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-   /* override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-*/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return listOfFeeds.count
@@ -59,47 +47,40 @@ class ListOfFeedsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedLinkCell", for: indexPath)
         
         cell.textLabel?.text = listOfFeeds[indexPath.row].feedLink
-        // Configure the cell...
-
+        toggleCellCheckbox(cell, isUsed: listOfFeeds[indexPath.row].isUsed)
         return cell
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let feedLink = listOfFeeds[indexPath.row]
+            feedLink.ref?.removeValue()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        let feedLink = listOfFeeds[indexPath.row]
+        let toggledIsUsed = !feedLink.isUsed
+        toggleCellCheckbox(cell, isUsed: toggledIsUsed)
+        feedLink.ref?.updateChildValues([
+            "isUsed": toggledIsUsed
+            ])
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    func toggleCellCheckbox(_ cell: UITableViewCell, isUsed: Bool) {
+        if !isUsed {
+            cell.accessoryType = .none
+            cell.textLabel?.textColor = .gray
+        } else {
+            cell.accessoryType = .checkmark
+            cell.textLabel?.textColor = .black
+        }
     }
-    */
-
     
     @IBAction func addFeedLinkButtonAction(_ sender: UIBarButtonItem) {
        

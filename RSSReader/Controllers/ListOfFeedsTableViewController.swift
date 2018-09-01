@@ -51,9 +51,9 @@ class ListOfFeedsTableViewController: UITableViewController {
         return cell
     }
 
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -92,7 +92,7 @@ class ListOfFeedsTableViewController: UITableViewController {
                 let text = textField.text else { return }
             
             let feedItem = LinkOfFeed(urlString: text, isUsed: true)
-            let feedItemRef = self.ref.child("links")
+            let feedItemRef = self.ref.child("links\(self.listOfFeeds.count)")
             
             feedItemRef.setValue(feedItem.toAnyObject())
         }

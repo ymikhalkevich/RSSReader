@@ -81,6 +81,9 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
     @IBAction func refreshBtnAction(_ sender: UIBarButtonItem) {
         webView.reload()
     }
+    @IBAction func backToFeedsBtnAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

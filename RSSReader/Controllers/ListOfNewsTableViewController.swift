@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ListOfNewsTableViewController: UITableViewController {
 
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
+    
+    @IBAction func signOutButtonAction(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "GoToLogout", sender: nil)
+            self.dismiss(animated: true, completion: nil)
+        } catch (let error) {
+            print("Auth sign out failed: \(error)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,4 +105,7 @@ class ListOfNewsTableViewController: UITableViewController {
     }
     */
 
+    deinit {
+        print("News VC deinited")
+    }
 }

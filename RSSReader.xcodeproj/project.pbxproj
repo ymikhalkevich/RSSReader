@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */; };
 		0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */; };
+		0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D3121375CF800C4DFF4 /* TabBarController.swift */; };
 		0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */; };
 		0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F0F6213296EA00C74BCD /* AppDelegate.swift */; };
 		0A97F0FC213296EA00C74BCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FA213296EA00C74BCD /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksOfFeeds.swift; sourceTree = "<group>"; };
 		0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		0A133D3121375CF800C4DFF4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		0A97F0F3213296EA00C74BCD /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A97F0F6213296EA00C74BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				0A97F0F5213296EA00C74BCD /* RSSReader */,
+				0A97F1082132973600C74BCD /* Support Files */,
 				0A97F0F4213296EA00C74BCD /* Products */,
 				040EECA8E2E0A900FFED1894 /* Pods */,
 				50856ACDD5313A79A2BE2008 /* Frameworks */,
@@ -91,9 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				0A133CFE2135B56800C4DFF4 /* Model */,
-				0A97F1082132973600C74BCD /* Support Files */,
-				0A97F10A213297D800C74BCD /* ViewController */,
 				0A97F1092132977400C74BCD /* View */,
+				0A97F10A213297D800C74BCD /* Controllers */,
 			);
 			path = RSSReader;
 			sourceTree = "<group>";
@@ -118,7 +120,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0A97F10A213297D800C74BCD /* ViewController */ = {
+		0A97F10A213297D800C74BCD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				0A97F10B21329ED800C74BCD /* ViewController.swift */,
@@ -126,8 +128,9 @@
 				0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */,
 				0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */,
 				0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */,
+				0A133D3121375CF800C4DFF4 /* TabBarController.swift */,
 			);
-			path = ViewController;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		50856ACDD5313A79A2BE2008 /* Frameworks */ = {
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */,
+				0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */,
 				0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */,
 				0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */,
 				0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */,
@@ -410,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJ7245G6JV;
-				INFOPLIST_FILE = "$(SRCROOT)/RSSReader/Support Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,7 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJ7245G6JV;
-				INFOPLIST_FILE = "$(SRCROOT)/RSSReader/Support Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

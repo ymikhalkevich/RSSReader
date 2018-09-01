@@ -12,7 +12,6 @@ import Firebase
 
 class OnBoardingViewController: UIViewController {
 
-    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTexField: UITextField!
@@ -27,15 +26,36 @@ class OnBoardingViewController: UIViewController {
 
     @IBAction func signInButtonAction(_ sender: UIButton) {
 
-        if let email = emailTextField.text, let password = passwordTexField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+//        if let email = emailTextField.text, let password = passwordTexField.text {
+//            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+//
+//                if let u = result {
+//                    self.performSegue(withIdentifier: "GoToApplication", sender: self)
+//                }
+//                else {
+//                    print("ERR: ")
+//                }
+//            }
+//        }
+        
+        guard
+            let email = emailTextField.text,
+            let password = passwordTexField.text,
+            email.count > 0,
+            password.count > 0
+            else {
+                return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if let error = error, user == nil {
+                let alert = UIAlertController(title: "Sign In Failed",
+                                              message: error.localizedDescription,
+                                              preferredStyle: .alert)
                 
-                if let u = result {
-                    self.performSegue(withIdentifier: "GoToApplication", sender: self)
-                }
-                else {
-                    print("ERR: ")
-                }
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -53,7 +73,6 @@ class OnBoardingViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,13 +84,14 @@ class OnBoardingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+/*
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if Auth.auth().currentUser != nil {
             performSegue(withIdentifier: "GoToApplication", sender: self)
         }
     }
+ */
     /*
     // MARK: - Navigation
 

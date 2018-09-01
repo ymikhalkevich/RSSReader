@@ -79,7 +79,14 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
     }
     
     @IBAction func refreshBtnAction(_ sender: UIBarButtonItem) {
-        webView.reload()
+        if let startUrl = URL(string: "https://www.google.com") {
+            let requestUrl = URLRequest(url: startUrl)
+            webView.loadRequest(requestUrl)
+        }
+        else {
+            print("incorrect URL")
+        }
+       //webView.reload()
     }
     @IBAction func backToFeedsBtnAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)

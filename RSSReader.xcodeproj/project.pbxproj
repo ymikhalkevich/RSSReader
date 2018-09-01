@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */; };
+		0A133D032135BFF000C4DFF4 /* LinkOfFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinkOfFeed.swift */; };
 		0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */; };
 		0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D3121375CF800C4DFF4 /* TabBarController.swift */; };
 		0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksOfFeeds.swift; sourceTree = "<group>"; };
+		0A133D022135BFF000C4DFF4 /* LinkOfFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkOfFeed.swift; sourceTree = "<group>"; };
 		0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		0A133D3121375CF800C4DFF4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		0A133CFE2135B56800C4DFF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A133D022135BFF000C4DFF4 /* LinksOfFeeds.swift */,
+				0A133D022135BFF000C4DFF4 /* LinkOfFeed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +221,7 @@
 				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -228,6 +229,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +264,7 @@
 			files = (
 				0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */,
 				0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */,
-				0A133D032135BFF000C4DFF4 /* LinksOfFeeds.swift in Sources */,
+				0A133D032135BFF000C4DFF4 /* LinkOfFeed.swift in Sources */,
 				0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */,
 				0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */,
 				0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */,

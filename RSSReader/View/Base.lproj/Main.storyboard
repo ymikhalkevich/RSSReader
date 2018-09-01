@@ -153,7 +153,7 @@
                         <outlet property="emailTextField" destination="1r7-sn-XLN" id="Pqv-En-rQi"/>
                         <outlet property="passwordTexField" destination="dE2-1d-xe6" id="xYo-2T-sdz"/>
                         <outlet property="signInButton" destination="h1m-mh-h2o" id="MPo-Q5-BID"/>
-                        <segue destination="wPg-ip-IU8" kind="show" id="oq8-pm-uRp"/>
+                        <segue destination="wPg-ip-IU8" kind="show" identifier="GoToApplication" id="oq8-pm-uRp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKp-4n-8oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,7 +179,11 @@
                                                 <segue destination="HP3-yi-M4x" kind="show" id="Bzk-cH-vHw"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem systemItem="add" id="ba6-vE-JF6"/>
+                                        <barButtonItem systemItem="add" id="ba6-vE-JF6">
+                                            <connections>
+                                                <action selector="addFeedLinkButtonAction:" destination="N0l-Yv-X4y" id="QpT-im-0RX"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </rightBarButtonItems>
                                 </navigationItem>
                             </items>

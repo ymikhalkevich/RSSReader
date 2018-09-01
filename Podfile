@@ -8,6 +8,7 @@ target 'RSSReader' do
   # Pods for RSSReader
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Database', :inhibit_warnings => true
 pod 'FeedKit', '~> 8.0'
 
 end

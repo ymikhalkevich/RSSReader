@@ -16,8 +16,8 @@ class ListOfNewsTableViewController: UITableViewController {
     @IBAction func signOutButtonAction(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
+            //  self.dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "GoToLogout", sender: nil)
-            self.dismiss(animated: true, completion: nil)
         } catch (let error) {
             print("Auth sign out failed: \(error)")
         }

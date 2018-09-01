@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class ListOfFeedsTableViewController: UITableViewController {
+    
+    var listOfFeeds : [LinkOfFeed] = []
+    let ref = Database.database().reference(withPath: "feeds-links")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +86,37 @@ class ListOfFeedsTableViewController: UITableViewController {
     }
     */
 
+    
+    @IBAction func addFeedLinkButtonAction(_ sender: UIBarButtonItem) {
+       
+        let alert = UIAlertController(title: "Feed Item",message: "Add an Feed",
+        preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let textField = alert.textFields?.first,
+                let text = textField.text else { return }
+            
+            
+            let feedItem = LinkOfFeed(urlString: text, isUsed: true)
+            
+            let feedItemRef = self.ref.child(text)
+            
+            feedItemRef.setValue(feedItem.toAnyObject())
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        
+        alert.addTextField()
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -92,4 +127,5 @@ class ListOfFeedsTableViewController: UITableViewController {
     }
     */
 
+    
 }

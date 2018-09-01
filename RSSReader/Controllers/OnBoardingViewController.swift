@@ -104,3 +104,16 @@ class OnBoardingViewController: UIViewController {
     */
 
 }
+
+extension OnBoardingViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTexField.becomeFirstResponder()
+        }
+        if textField == passwordTexField {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}

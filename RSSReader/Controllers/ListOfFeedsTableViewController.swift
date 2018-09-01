@@ -16,7 +16,21 @@ class ListOfFeedsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.allowsMultipleSelectionDuringEditing = false
+        
+        ref.queryOrdered(byChild: "links").observe(.value, with: { snapshot in
+            var newItems: [LinkOfFeed] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let linkFeed = LinkOfFeed(snapshot: snapshot) {
+                    newItems.append(linkFeed)
+                }
+            }
+            
+            self.listOfFeeds = newItems
+            self.tableView.reloadData()
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,25 +45,25 @@ class ListOfFeedsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+   /* override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
-
+*/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listOfFeeds.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedLinkCell", for: indexPath)
+        
+        cell.textLabel?.text = listOfFeeds[indexPath.row].feedLink
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -96,10 +110,8 @@ class ListOfFeedsTableViewController: UITableViewController {
             guard let textField = alert.textFields?.first,
                 let text = textField.text else { return }
             
-            
             let feedItem = LinkOfFeed(urlString: text, isUsed: true)
-            
-            let feedItemRef = self.ref.child(text)
+            let feedItemRef = self.ref.child("links")
             
             feedItemRef.setValue(feedItem.toAnyObject())
         }

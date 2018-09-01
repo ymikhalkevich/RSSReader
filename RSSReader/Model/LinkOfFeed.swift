@@ -9,11 +9,18 @@
 import Foundation
 import Firebase
 
-class LinkOfFeed  {
+struct LinkOfFeed {
     let ref: DatabaseReference?
     let key: String
-    var feddLink: String
+    var feedLink: String
     var isUsed: Bool
+    
+    init(urlString: String, isUsed: Bool, key: String = "") {
+        self.ref = nil
+        self.key = key
+        self.feedLink = urlString
+        self.isUsed = isUsed
+    }
     
     init?(snapshot: DataSnapshot) {
         guard
@@ -25,16 +32,11 @@ class LinkOfFeed  {
         
         self.ref = snapshot.ref
         self.key = snapshot.key
-        self.feddLink = feddLink
+        self.feedLink = feedLink
         self.isUsed = isUsed
     }
     
-    init(urlString: String, isUsed: Bool) {
-        self.ref = nil
-        self.feddLink = urlString
-        self.isUsed = isUsed
-    }
-    
+  
     func toAnyObject() -> Any {
         return [
             "feedLink": feedLink,

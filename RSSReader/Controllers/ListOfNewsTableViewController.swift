@@ -8,29 +8,72 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+import FeedKit
 
 class ListOfNewsTableViewController: UITableViewController {
-
+    
+    var listOfFeedsNews : [LinkOfFeed] = []
+    let ref = Database.database().reference(withPath: "feeds-links")
+    
+    var parseResultOfEachFeed : RSSFeed?
+    
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     
     @IBAction func signOutButtonAction(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
-            //  self.dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "GoToLogout", sender: nil)
         } catch (let error) {
             print("Auth sign out failed: \(error)")
         }
+        
+        //  self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.allowsMultipleSelectionDuringEditing = false
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
+            var newItems: [LinkOfFeed] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let linkFeed = LinkOfFeed(snapshot: snapshot) {
+                    newItems.append(linkFeed)
+                }
+            }
+            
+            self.listOfFeedsNews = newItems
+            
+            for feedSource in self.listOfFeedsNews {
+                if feedSource.isUsed {
+                    
+                    var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
+                    
+                    parser.parseAsync { [weak self] (result) in
+                        
+                        if let rss = result.rssFeed {
+                        
+                            self?.parseResultOfEachFeed = rss
+                            
+                            DispatchQueue.main.async {
+                                self?.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,23 +85,38 @@ class ListOfNewsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        var feedsToDisplayConter = Int()
+        for feedNews in listOfFeedsNews {
+            if feedNews.isUsed {
+                feedsToDisplayConter += 1
+            }
+        }
+        return feedsToDisplayConter
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return listOfFeedsNews[section].feedLink
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        
+        print ("description = \(parseResultOfEachFeed?.description), count= \(parseResultOfEachFeed?.items?.count)")
+        
+        return (parseResultOfEachFeed!.items?.count)!
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
+        cell.textLabel?.text = parseResultOfEachFeed?.items?[indexPath.row].title
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

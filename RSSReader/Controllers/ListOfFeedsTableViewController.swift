@@ -19,7 +19,7 @@ class ListOfFeedsTableViewController: UITableViewController {
         
         tableView.allowsMultipleSelectionDuringEditing = false
         
-        ref.queryOrdered(byChild: "links").observe(.value, with: { snapshot in
+        ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
             var newItems: [LinkOfFeed] = []
             for child in snapshot.children {
                 if let snapshot = child as? DataSnapshot,

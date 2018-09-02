@@ -39,39 +39,36 @@ class ListOfNewsTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.estimatedRowHeight = 44.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        
-        ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
-            var newItems: [LinkOfFeed] = []
-            for child in snapshot.children {
-                if let snapshot = child as? DataSnapshot,
-                    let linkFeed = LinkOfFeed(snapshot: snapshot) {
-                    newItems.append(linkFeed)
-                }
-            }
-            
-            self.listOfFeedsNews = newItems
-            
-            for feedSource in self.listOfFeedsNews {
-                if feedSource.isUsed {
-                    
-                    var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
-                    
-                    parser.parseAsync { [weak self] (result) in
-                        
-                        if let rss = result.rssFeed {
-                        
-                            self?.parseResultOfEachFeed = rss
-                            
-                            DispatchQueue.main.async {
-                                self?.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
-            }
-        })
+//        ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
+//            var newItems: [LinkOfFeed] = []
+//            for child in snapshot.children {
+//                if let snapshot = child as? DataSnapshot,
+//                    let linkFeed = LinkOfFeed(snapshot: snapshot) {
+//                    newItems.append(linkFeed)
+//                }
+//            }
+//
+//            self.listOfFeedsNews = newItems
+//
+//            for feedSource in self.listOfFeedsNews {
+//                if feedSource.isUsed {
+//
+//                    var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
+//
+//                    parser.parseAsync { [weak self] (result) in
+//
+//                        if let rss = result.rssFeed {
+//
+//                            self?.parseResultOfEachFeed = rss
+//
+//                            DispatchQueue.main.async {
+//                                self?.tableView.reloadData()
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        })
         
         
     }
@@ -85,7 +82,7 @@ class ListOfNewsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        var feedsToDisplayConter = Int()
+        var feedsToDisplayConter = 0
         for feedNews in listOfFeedsNews {
             if feedNews.isUsed {
                 feedsToDisplayConter += 1
@@ -101,16 +98,17 @@ class ListOfNewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        
-        print ("description = \(parseResultOfEachFeed?.description), count= \(parseResultOfEachFeed?.items?.count)")
-        
+//        print ("description = \(parseResultOfEachFeed?.description), count= \(parseResultOfEachFeed?.items?.count)")
+//
         return (parseResultOfEachFeed!.items?.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
         cell.textLabel?.text = parseResultOfEachFeed?.items?[indexPath.row].title
+        
+//        tableView.estimatedRowHeight = 44.0
+     //   tableView.rowHeight = UITableViewAutomaticDimension
         
         // Configure the cell...
 
@@ -162,7 +160,40 @@ class ListOfNewsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    override func viewWillAppear (_ animated: Bool) {
+        super.viewWillAppear(false)
+                ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
+                    var newItems: [LinkOfFeed] = []
+                    for child in snapshot.children {
+                        if let snapshot = child as? DataSnapshot,
+                            let linkFeed = LinkOfFeed(snapshot: snapshot) {
+                            newItems.append(linkFeed)
+                        }
+                    }
+        
+                    self.listOfFeedsNews = newItems
+        
+                    for feedSource in self.listOfFeedsNews {
+                        if feedSource.isUsed {
+        
+                            var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
+        
+                            parser.parseAsync { [weak self] (result) in
+        
+                                if let rss = result.rssFeed {
+        
+                                    self?.parseResultOfEachFeed = rss
+        
+                                    DispatchQueue.main.async {
+                                        self?.tableView.reloadData()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+    }
     deinit {
         print("News VC deinited")
     }

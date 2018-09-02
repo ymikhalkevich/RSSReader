@@ -21,22 +21,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" textLabel="kDC-EI-7FU" style="IBUITableViewCellStyleDefault" id="3lC-Yj-Xl6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="16" reuseIdentifier="newsCell" textLabel="B2g-rg-9MB" imageView="ohL-G5-Ray" style="IBUITableViewCellStyleDefault" id="3lC-Yj-Xl6">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3lC-Yj-Xl6" id="SxG-6p-amt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kDC-EI-7FU">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B2g-rg-9MB">
+                                            <rect key="frame" x="15" y="0.0" width="344" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ohL-G5-Ray">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -196,7 +200,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Feeds" id="j5f-RZ-UPH">
                         <rightBarButtonItems>
-                            <barButtonItem title="Browse &gt;" style="plain" id="akH-uT-9J2">
+                            <barButtonItem style="plain" systemItem="search" id="akH-uT-9J2">
                                 <connections>
                                     <segue destination="HP3-yi-M4x" kind="show" id="Bzk-cH-vHw"/>
                                 </connections>
@@ -227,21 +231,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbX-cw-5j2">
-                                <rect key="frame" x="0.0" y="132" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUE-0P-JnQ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Added Feeds" leftItemsSupplementBackButton="YES" id="MmI-bk-4gi">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="plain" id="iv0-eF-c7o">
-                                            <connections>
-                                                <action selector="backToFeedsBtnAction:" destination="HP3-yi-M4x" id="jzA-SC-pCB"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08n-JP-mlf">
                                 <rect key="frame" x="0.0" y="685" width="375" height="44"/>
                                 <items>
@@ -270,27 +262,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="leading" secondItem="mbX-cw-5j2" secondAttribute="leading" id="4EI-V4-WIg"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="leading" secondItem="08n-JP-mlf" secondAttribute="leading" id="2Un-QY-Fn7"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="trailing" secondItem="08n-JP-mlf" secondAttribute="trailing" id="8hi-Qr-pOa"/>
                             <constraint firstItem="2YD-fg-FI7" firstAttribute="centerY" secondItem="Mb9-St-Nsj" secondAttribute="centerY" id="9UH-WG-NkE"/>
                             <constraint firstItem="mbX-cw-5j2" firstAttribute="trailing" secondItem="qFE-Z5-4C3" secondAttribute="trailing" id="A3T-dd-qeu"/>
+                            <constraint firstItem="mbX-cw-5j2" firstAttribute="top" secondItem="qFE-Z5-4C3" secondAttribute="top" id="Fpa-Pg-MDf"/>
                             <constraint firstItem="08n-JP-mlf" firstAttribute="top" secondItem="mbX-cw-5j2" secondAttribute="bottom" id="GYP-rU-l61"/>
                             <constraint firstItem="mbX-cw-5j2" firstAttribute="leading" secondItem="qFE-Z5-4C3" secondAttribute="leading" id="KIe-oS-Sm1"/>
                             <constraint firstItem="08n-JP-mlf" firstAttribute="bottom" secondItem="qFE-Z5-4C3" secondAttribute="bottom" id="Mi6-fR-o1C"/>
                             <constraint firstItem="2YD-fg-FI7" firstAttribute="centerX" secondItem="Mb9-St-Nsj" secondAttribute="centerX" id="NiY-yX-vrD"/>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="top" secondItem="qFE-Z5-4C3" secondAttribute="top" id="Pn7-4L-cIy"/>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="trailing" secondItem="08n-JP-mlf" secondAttribute="trailing" id="Rpv-Dc-eVD"/>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="leading" secondItem="08n-JP-mlf" secondAttribute="leading" id="YRR-FQ-XtQ"/>
-                            <constraint firstItem="mbX-cw-5j2" firstAttribute="top" secondItem="fUE-0P-JnQ" secondAttribute="bottom" id="sLd-JM-oi9"/>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="trailing" secondItem="mbX-cw-5j2" secondAttribute="trailing" id="unU-fj-8m7"/>
-                            <constraint firstItem="mbX-cw-5j2" firstAttribute="top" secondItem="fUE-0P-JnQ" secondAttribute="bottom" id="wEQ-fC-Ahr"/>
-                            <constraint firstItem="fUE-0P-JnQ" firstAttribute="top" secondItem="qFE-Z5-4C3" secondAttribute="top" id="xZy-7M-CNu"/>
                             <constraint firstItem="qFE-Z5-4C3" firstAttribute="bottom" secondItem="08n-JP-mlf" secondAttribute="bottom" id="yhw-cG-TnX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qFE-Z5-4C3"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="2YD-fg-FI7" id="KtR-t9-w9X"/>
-                        <outlet property="backToFeedsButton" destination="iv0-eF-c7o" id="Vdg-1i-wxX"/>
                         <outlet property="backwardButton" destination="7Fm-ZS-Xcd" id="P4E-x1-Z1h"/>
                         <outlet property="forwardButton" destination="W4g-T1-1Ic" id="kXv-2t-P7e"/>
                         <outlet property="refreshButton" destination="qcl-8e-mji" id="Tzd-Ob-OfR"/>
@@ -324,7 +310,7 @@
         <scene sceneID="Jy1-SW-kk2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kCh-WB-FMR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="kBo-L9-Xyr"/>
+                    <tabBarItem key="tabBarItem" title="News" image="news" id="kBo-L9-Xyr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u7b-Lt-fqe">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -343,7 +329,7 @@
         <scene sceneID="tPv-iz-qo2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D6n-lD-tPN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feeds" id="xR6-hj-8fU"/>
+                    <tabBarItem key="tabBarItem" title="Feeds" image="bookmark" id="xR6-hj-8fU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uUL-UW-thB">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -359,4 +345,8 @@
             <point key="canvasLocation" x="1556" y="452.95566502463055"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookmark" width="30" height="30"/>
+        <image name="news" width="30" height="30"/>
+    </resources>
 </document>

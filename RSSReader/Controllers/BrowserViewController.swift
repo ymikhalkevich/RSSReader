@@ -14,7 +14,7 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var backwardButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var backToFeedsButton: UIBarButtonItem!
+ //   @IBOutlet weak var backToFeedsButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let application = UIApplication.shared
@@ -88,9 +88,9 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
         }
        //webView.reload()
     }
-    @IBAction func backToFeedsBtnAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func backToFeedsBtnAction(_ sender: UIBarButtonItem) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

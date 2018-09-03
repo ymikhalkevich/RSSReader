@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		0A133D032135BFF000C4DFF4 /* LinkOfFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D022135BFF000C4DFF4 /* LinkOfFeed.swift */; };
 		0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */; };
-		0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A133D3121375CF800C4DFF4 /* TabBarController.swift */; };
 		0A39DF0D2134A11E00B45CAB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */; };
 		0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F0F6213296EA00C74BCD /* AppDelegate.swift */; };
 		0A97F0FC213296EA00C74BCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FA213296EA00C74BCD /* Main.storyboard */; };
 		0A97F0FE213296EC00C74BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FD213296EC00C74BCD /* Assets.xcassets */; };
 		0A97F101213296EC00C74BCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F0FF213296EC00C74BCD /* LaunchScreen.storyboard */; };
-		0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10B21329ED800C74BCD /* ViewController.swift */; };
 		0A97F10E2132E7F900C74BCD /* ListOfNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */; };
 		0A97F1102132E82000C74BCD /* ListOfFeedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */; };
 		0A97F112213308BF00C74BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A97F111213308BF00C74BCD /* GoogleService-Info.plist */; };
@@ -26,7 +24,6 @@
 /* Begin PBXFileReference section */
 		0A133D022135BFF000C4DFF4 /* LinkOfFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkOfFeed.swift; sourceTree = "<group>"; };
 		0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		0A133D3121375CF800C4DFF4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		0A97F0F3213296EA00C74BCD /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A97F0F6213296EA00C74BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +31,6 @@
 		0A97F0FD213296EC00C74BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A97F100213296EC00C74BCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A97F102213296EC00C74BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A97F10B21329ED800C74BCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfNewsTableViewController.swift; sourceTree = "<group>"; };
 		0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFeedsTableViewController.swift; sourceTree = "<group>"; };
 		0A97F111213308BF00C74BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -125,13 +121,11 @@
 		0A97F10A213297D800C74BCD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0A97F10B21329ED800C74BCD /* ViewController.swift */,
 				0A97F10D2132E7F900C74BCD /* ListOfNewsTableViewController.swift */,
 				0AB9AE45213C7192006BDE10 /* NewsBrowserViewController.swift */,
 				0A97F10F2132E82000C74BCD /* ListOfFeedsTableViewController.swift */,
 				0A39DF0C2134A11E00B45CAB /* BrowserViewController.swift */,
 				0A133D2F2137408D00C4DFF4 /* OnBoardingViewController.swift */,
-				0A133D3121375CF800C4DFF4 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,8 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A97F10C21329ED800C74BCD /* ViewController.swift in Sources */,
-				0A133D3221375CF800C4DFF4 /* TabBarController.swift in Sources */,
 				0A133D032135BFF000C4DFF4 /* LinkOfFeed.swift in Sources */,
 				0A133D302137408E00C4DFF4 /* OnBoardingViewController.swift in Sources */,
 				0A97F0F7213296EA00C74BCD /* AppDelegate.swift in Sources */,

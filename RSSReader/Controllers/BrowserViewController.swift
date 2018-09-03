@@ -14,7 +14,6 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var backwardButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
- //   @IBOutlet weak var backToFeedsButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var someDeligated : String = ""
@@ -97,11 +96,7 @@ class BrowserViewController: UIViewController, UIWebViewDelegate {
         else {
             print("incorrect URL")
         }
-       //webView.reload()
     }
-//    @IBAction func backToFeedsBtnAction(_ sender: UIBarButtonItem) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

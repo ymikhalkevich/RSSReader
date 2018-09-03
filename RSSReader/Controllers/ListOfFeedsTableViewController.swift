@@ -35,11 +35,9 @@ class ListOfFeedsTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return listOfFeeds.count
     }
 
@@ -84,12 +82,12 @@ class ListOfFeedsTableViewController: UITableViewController {
     
     @IBAction func addFeedLinkButtonAction(_ sender: UIBarButtonItem) {
        
-        let alert = UIAlertController(title: "Feed Item",message: "Add an Feed",
-        preferredStyle: .alert)
+        let alert = UIAlertController(title: "Feed Item",message: "Add an Feed", preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            guard let textField = alert.textFields?.first,
-                let text = textField.text else { return }
+            guard let textField = alert.textFields?.first, let text = textField.text else {
+                return
+            }
             
             let feedItem = LinkOfFeed(urlString: text, isUsed: true)
             let feedItemRef = self.ref.child("links\(self.listOfFeeds.count)")
@@ -97,8 +95,7 @@ class ListOfFeedsTableViewController: UITableViewController {
             feedItemRef.setValue(feedItem.toAnyObject())
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addTextField()
         
@@ -108,17 +105,4 @@ class ListOfFeedsTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
         
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
 }

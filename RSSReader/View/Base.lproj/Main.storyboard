@@ -77,14 +77,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ev-r2-KvV">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ev-r2-KvV">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="bottom" secondItem="aqh-Pn-S6n" secondAttribute="bottom" id="BnL-Qt-7t1"/>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="top" secondItem="aqh-Pn-S6n" secondAttribute="top" id="EtK-iA-iyF"/>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="trailing" secondItem="aqh-Pn-S6n" secondAttribute="trailing" id="UPk-AV-QOX"/>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="leading" secondItem="aqh-Pn-S6n" secondAttribute="leading" id="ZgB-TW-yWY"/>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="top" secondItem="aqh-Pn-S6n" secondAttribute="top" id="bgx-xn-obe"/>
+                            <constraint firstItem="9Ev-r2-KvV" firstAttribute="bottom" secondItem="aqh-Pn-S6n" secondAttribute="bottom" id="pis-dp-duO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aqh-Pn-S6n"/>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="m97-3A-Mfn"/>
@@ -127,7 +134,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-Fl-2tW">
-                                <rect key="frame" x="20" y="482" width="335" height="32"/>
+                                <rect key="frame" x="20" y="403" width="335" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1m-mh-h2o">
                                         <rect key="frame" x="0.0" y="0.0" width="224" height="32"/>
@@ -154,7 +161,7 @@
                             <constraint firstItem="j25-3q-rD3" firstAttribute="centerX" secondItem="NVZ-3c-c5K" secondAttribute="centerX" id="Q7w-5Z-8Nw"/>
                             <constraint firstItem="j25-3q-rD3" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="Sb6-yk-TDE"/>
                             <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="2Qp-Fl-2tW" secondAttribute="trailing" constant="20" id="ZDO-KS-VeZ"/>
-                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="top" secondItem="j25-3q-rD3" secondAttribute="bottom" constant="99" id="caa-Bl-cRj"/>
+                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="top" secondItem="j25-3q-rD3" secondAttribute="bottom" constant="20" id="caa-Bl-cRj"/>
                             <constraint firstItem="2Qp-Fl-2tW" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="gDW-ec-H7H"/>
                             <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="j25-3q-rD3" secondAttribute="trailing" constant="20" id="nRj-CZ-6uy"/>
                         </constraints>

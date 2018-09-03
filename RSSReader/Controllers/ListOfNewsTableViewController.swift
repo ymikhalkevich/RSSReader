@@ -110,7 +110,7 @@ class ListOfNewsTableViewController: UITableViewController {
         
         print(indexPath.section, indexPath.row)
         
-    //    let urlString = parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].link
+        let urlString = parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].link
         //print(parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].title)
         print(parseResultOfAllFeed[indexPath.section]?.link)
     //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -118,7 +118,7 @@ class ListOfNewsTableViewController: UITableViewController {
      //   let webViewNews = storyboard.instantiateViewController(withIdentifier: "NewsBrowserViewController") as? NewsBrowserViewController
     
       //  webViewNews?.newsLinkDelegated = urlString!
-    //    newsLinkToDelegate = urlString!
+        newsLinkToDelegate = urlString!
         
       //  performSegue(withIdentifier: "GoToNewsBrowser", with: nil)
     //    self.present(webViewNews!, animated: true, completion: nil)
@@ -203,20 +203,20 @@ class ListOfNewsTableViewController: UITableViewController {
         })
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if let identifier = segue.identifier {
-//            switch identifier {
-//            case "GoToNewsBrowser":
-//                if let newsBrowser = segue.destination as? NewsBrowserViewController {
-//                    newsBrowser.newsLinkDelegated = newsLinkToDelegate
-//                }
-//            default:
-//                break
-//            }
-//        }
-//    }
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "GoToNewsBrowser":
+                if let newsBrowser = segue.destination as? NewsBrowserViewController {
+                    newsBrowser.newsLinkDelegated = newsLinkToDelegate
+                }
+            default:
+                break
+            }
+        }
+    }
+
     deinit {
         print("News VC deinited")
     }

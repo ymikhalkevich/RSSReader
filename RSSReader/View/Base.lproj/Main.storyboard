@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="j25-3q-rD3">
-                                <rect key="frame" x="20" y="398" width="335" height="76"/>
+                                <rect key="frame" x="20" y="307" width="335" height="76"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1r7-sn-XLN">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -149,32 +149,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-Rf-S3L">
-                                <rect key="frame" x="67" y="147" width="240" height="240"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oLw-Ll-gfy">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                        <color key="backgroundColor" red="0.73684607404023716" green="0.93559123654985865" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="240" id="fSq-JU-aza"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="oLw-Ll-gfy" firstAttribute="centerX" secondItem="Iug-Rf-S3L" secondAttribute="centerX" id="Rvp-uo-kL0"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Iug-Rf-S3L" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="67" id="4GV-i1-sdW"/>
-                            <constraint firstItem="Iug-Rf-S3L" firstAttribute="top" secondItem="NwZ-xt-3cX" secondAttribute="top" constant="59" id="DCZ-J6-N3l"/>
-                            <constraint firstItem="Iug-Rf-S3L" firstAttribute="centerX" secondItem="j25-3q-rD3" secondAttribute="centerX" id="DFe-6g-iSS"/>
-                            <constraint firstItem="j25-3q-rD3" firstAttribute="centerY" secondItem="NVZ-3c-c5K" secondAttribute="centerY" constant="30" id="DNE-kD-R92"/>
+                            <constraint firstItem="j25-3q-rD3" firstAttribute="centerY" secondItem="NVZ-3c-c5K" secondAttribute="centerY" constant="-61" id="DNE-kD-R92"/>
                             <constraint firstItem="j25-3q-rD3" firstAttribute="centerX" secondItem="NVZ-3c-c5K" secondAttribute="centerX" id="Q7w-5Z-8Nw"/>
                             <constraint firstItem="j25-3q-rD3" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="Sb6-yk-TDE"/>
                             <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="2Qp-Fl-2tW" secondAttribute="trailing" constant="20" id="ZDO-KS-VeZ"/>
-                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="top" secondItem="j25-3q-rD3" secondAttribute="bottom" constant="8" id="caa-Bl-cRj"/>
+                            <constraint firstItem="2Qp-Fl-2tW" firstAttribute="top" secondItem="j25-3q-rD3" secondAttribute="bottom" constant="99" id="caa-Bl-cRj"/>
                             <constraint firstItem="2Qp-Fl-2tW" firstAttribute="leading" secondItem="NwZ-xt-3cX" secondAttribute="leading" constant="20" id="gDW-ec-H7H"/>
                             <constraint firstItem="NwZ-xt-3cX" firstAttribute="trailing" secondItem="j25-3q-rD3" secondAttribute="trailing" constant="20" id="nRj-CZ-6uy"/>
                         </constraints>
@@ -183,7 +165,6 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="avatarImageView" destination="oLw-Ll-gfy" id="x1E-Q3-eku"/>
                         <outlet property="createAccauntButton" destination="aeK-IO-gf2" id="llb-AP-dXP"/>
                         <outlet property="emailTextField" destination="1r7-sn-XLN" id="Pqv-En-rQi"/>
                         <outlet property="passwordTexField" destination="dE2-1d-xe6" id="xYo-2T-sdz"/>

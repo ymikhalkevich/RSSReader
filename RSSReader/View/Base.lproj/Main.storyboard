@@ -40,9 +40,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="K0a-d1-Mh1" kind="show" identifier="GoToNewsBrowser" id="QZB-1X-lf8"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -65,6 +62,7 @@
                     <connections>
                         <outlet property="signOutButton" destination="hsw-yh-7jO" id="Eai-wK-bNs"/>
                         <segue destination="DN6-QP-Mmo" kind="show" identifier="GoToLogout" id="nxy-lu-sts"/>
+                        <segue destination="K0a-d1-Mh1" kind="show" identifier="GoToNewsBrowser" id="jDv-ZH-MkM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOU-gG-qVr" userLabel="First Responder" sceneMemberID="firstResponder"/>

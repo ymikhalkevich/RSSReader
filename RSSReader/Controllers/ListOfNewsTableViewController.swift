@@ -115,7 +115,7 @@ class ListOfNewsTableViewController: UITableViewController {
 //        webViewNews?.newsLinkDelegated = urlString!
         newsLinkToDelegate = urlString!
         
-      //  performSegue(withIdentifier: "GoToNewsBrowser", with: nil)
+        performSegue(withIdentifier: "GoToNewsBrowser", sender: nil)
       //  self.present(webViewNews!, animated: true, completion: nil)
     }
 
@@ -205,6 +205,7 @@ class ListOfNewsTableViewController: UITableViewController {
             case "GoToNewsBrowser":
                 if let newsBrowser = segue.destination as? NewsBrowserViewController {
                     newsBrowser.newsLinkDelegated = newsLinkToDelegate
+                    print("DelegatedLink = \(newsLinkToDelegate)")
                 }
             default:
                 break

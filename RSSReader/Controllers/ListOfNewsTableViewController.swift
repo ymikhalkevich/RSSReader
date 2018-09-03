@@ -107,21 +107,16 @@ class ListOfNewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        
-        print(indexPath.section, indexPath.row)
-        
         let urlString = parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].link
-        //print(parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].title)
-        print(parseResultOfAllFeed[indexPath.section]?.link)
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-     //   let webViewNews = storyboard.instantiateViewController(withIdentifier: "NewsBrowserViewController") as? NewsBrowserViewController
-    
-      //  webViewNews?.newsLinkDelegated = urlString!
+ 
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let webViewNews = storyboard.instantiateViewController(withIdentifier: "NewsBrowserViewController") as? NewsBrowserViewController
+//
+//        webViewNews?.newsLinkDelegated = urlString!
         newsLinkToDelegate = urlString!
         
       //  performSegue(withIdentifier: "GoToNewsBrowser", with: nil)
-    //    self.present(webViewNews!, animated: true, completion: nil)
+      //  self.present(webViewNews!, animated: true, completion: nil)
     }
 
     /*

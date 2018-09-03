@@ -10,7 +10,9 @@ import UIKit
 
 class NewsBrowserViewController: UIViewController {
     
+    @IBOutlet weak var backToNewsButton: UIBarButtonItem!
     @IBOutlet weak var webViewNews: UIWebView!
+    
     var newsLinkDelegated : String = ""
     
     override func viewDidLoad() {
@@ -22,15 +24,16 @@ class NewsBrowserViewController: UIViewController {
 
         if let startUrl = URL(string: newsLinkDelegated) {
             let requestUrl = URLRequest(url: startUrl)
-           webViewNews.loadRequest(requestUrl)
+            webViewNews.loadRequest(requestUrl)
+            newsLinkDelegated = ""
         }
         else {
             print("incorrect URL")
         }
-        newsLinkDelegated = ""
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

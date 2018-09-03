@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrowserViewController: UIViewController, UIWebViewDelegate{
+class BrowserViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -17,6 +17,8 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
  //   @IBOutlet weak var backToFeedsButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var someDeligated : String = ""
+    
     let application = UIApplication.shared
     
     override func viewDidLoad() {
@@ -24,17 +26,26 @@ class BrowserViewController: UIViewController, UIWebViewDelegate{
         
         webView.delegate = self
         
-        if let startUrl = URL(string: "https://www.google.com") {
+        if someDeligated == "" {
+            someDeligated = "https://www.google.com"
+        }
+
+        if let startUrl = URL(string: someDeligated) {
             let requestUrl = URLRequest(url: startUrl)
             webView.loadRequest(requestUrl)
         }
         else {
-              print("incorrect URL")
+            print("incorrect URL")
         }
-        
-        // Do any additional setup after loading the view.
     }
 
+    func loadLink (urlString: String) {
+        if let url = URL(string: urlString) {
+             webView.loadRequest(URLRequest(url: url))
+        }
+    }
+    
+    
     func isActivityIndicator(works: Bool, indicator: UIActivityIndicatorView) {
         application.isNetworkActivityIndicatorVisible = works
         if works {

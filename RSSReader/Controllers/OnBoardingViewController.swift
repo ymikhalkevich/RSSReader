@@ -26,19 +26,6 @@ class OnBoardingViewController: UIViewController {
     }
 
     @IBAction func signInButtonAction(_ sender: UIButton) {
-
-//        if let email = emailTextField.text, let password = passwordTexField.text {
-//            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-//
-//                if let u = result {
-//                    self.performSegue(withIdentifier: "GoToApplication", sender: self)
-//                }
-//                else {
-//                    print("ERR: ")
-//                }
-//            }
-//        }
-        
         guard
             let email = emailTextField.text,
             let password = passwordTexField.text,

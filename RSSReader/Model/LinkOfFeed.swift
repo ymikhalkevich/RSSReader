@@ -36,7 +36,6 @@ struct LinkOfFeed {
         self.isUsed = isUsed
     }
     
-  
     func toAnyObject() -> Any {
         return [
             "feedLink": feedLink,

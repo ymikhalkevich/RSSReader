@@ -16,31 +16,33 @@
         <scene sceneID="ILH-9J-lw5">
             <objects>
                 <tableViewController storyboardIdentifier="ListOfNewsTableViewController" title="News" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UZ0-gy-KXY" customClass="ListOfNewsTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YCs-YZ-LhI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YCs-YZ-LhI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="16" reuseIdentifier="newsCell" textLabel="B2g-rg-9MB" imageView="ohL-G5-Ray" style="IBUITableViewCellStyleDefault" id="3lC-Yj-Xl6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="16" reuseIdentifier="newsCell" textLabel="kDC-EI-7FU" style="IBUITableViewCellStyleDefault" id="3lC-Yj-Xl6">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3lC-Yj-Xl6" id="SxG-6p-amt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B2g-rg-9MB">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kDC-EI-7FU">
                                             <rect key="frame" x="15" y="0.0" width="344" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ohL-G5-Ray">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="K0a-d1-Mh1" kind="show" identifier="GoToNewsBrowser" id="QZB-1X-lf8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -68,6 +70,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOU-gG-qVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2604" y="-638.42364532019712"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="49B-Kb-5jt">
+            <objects>
+                <viewController storyboardIdentifier="NewsBrowserViewController" id="K0a-d1-Mh1" customClass="NewsBrowserViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jJh-ZS-0o6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ev-r2-KvV">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aqh-Pn-S6n"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="News" leftItemsSupplementBackButton="YES" id="wSt-ix-4ea"/>
+                    <connections>
+                        <outlet property="webViewNews" destination="9Ev-r2-KvV" id="Wk8-5J-myK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cs0-LO-OUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3396" y="-638"/>
         </scene>
         <!--On Boarding View Controller-->
         <scene sceneID="ccS-LR-6ox">
@@ -285,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZn-21-0zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3458.4000000000001" y="452.95566502463055"/>
+            <point key="canvasLocation" x="3294" y="453"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3Ct-bd-9n3">
@@ -309,7 +338,7 @@
         <!--News-->
         <scene sceneID="Jy1-SW-kk2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kCh-WB-FMR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="kCh-WB-FMR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="news" id="kBo-L9-Xyr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u7b-Lt-fqe">

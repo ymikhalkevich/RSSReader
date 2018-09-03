@@ -11,12 +11,19 @@ import FirebaseAuth
 import Firebase
 import FeedKit
 
+protocol GoToLinkStartable {
+    var urlStringDelegate: String {get set}
+}
+
 class ListOfNewsTableViewController: UITableViewController {
     
-    var listOfFeedsNews : [LinkOfFeed] = []
+    var newsLinkToDelegate = ""
+    var listOfFeedsNews: [LinkOfFeed] = []
     let ref = Database.database().reference(withPath: "feeds-links")
-    
+    var cnt = 0
+    var feedsLinkDatabaseUpdated = false
     var parseResultOfEachFeed : RSSFeed?
+    var parseResultOfAllFeed : [RSSFeed?] = []
     
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     
@@ -54,12 +61,12 @@ class ListOfNewsTableViewController: UITableViewController {
 //                if feedSource.isUsed {
 //
 //                    var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
-//
 //                    parser.parseAsync { [weak self] (result) in
-//
 //                        if let rss = result.rssFeed {
 //
 //                            self?.parseResultOfEachFeed = rss
+//
+//                            self?.parseResultOfAllFeed.append(rss)
 //
 //                            DispatchQueue.main.async {
 //                                self?.tableView.reloadData()
@@ -69,8 +76,6 @@ class ListOfNewsTableViewController: UITableViewController {
 //                }
 //            }
 //        })
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,40 +86,43 @@ class ListOfNewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        var feedsToDisplayConter = 0
-        for feedNews in listOfFeedsNews {
-            if feedNews.isUsed {
-                feedsToDisplayConter += 1
-            }
-        }
-        return feedsToDisplayConter
+    
+        return parseResultOfAllFeed.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return listOfFeedsNews[section].feedLink
+        return parseResultOfAllFeed[section]?.title
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-//        print ("description = \(parseResultOfEachFeed?.description), count= \(parseResultOfEachFeed?.items?.count)")
-//
-        return (parseResultOfEachFeed!.items?.count)!
+        return (parseResultOfAllFeed[section]!.items?.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
-        cell.textLabel?.text = parseResultOfEachFeed?.items?[indexPath.row].title
+        cell.textLabel?.text = parseResultOfAllFeed[indexPath.section]?.items?[indexPath.row].title
         
-//        tableView.estimatedRowHeight = 44.0
-     //   tableView.rowHeight = UITableViewAutomaticDimension
-        
-        // Configure the cell...
-
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        print(indexPath.section, indexPath.row)
+        
+    //    let urlString = parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].link
+        //print(parseResultOfAllFeed[indexPath.section]?.items![indexPath.row].title)
+        print(parseResultOfAllFeed[indexPath.section]?.link)
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+     //   let webViewNews = storyboard.instantiateViewController(withIdentifier: "NewsBrowserViewController") as? NewsBrowserViewController
+    
+      //  webViewNews?.newsLinkDelegated = urlString!
+    //    newsLinkToDelegate = urlString!
+        
+      //  performSegue(withIdentifier: "GoToNewsBrowser", with: nil)
+    //    self.present(webViewNews!, animated: true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -138,7 +146,7 @@ class ListOfNewsTableViewController: UITableViewController {
 
     /*
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    override func tableView(_ tableView: UITableView, mogit veRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
     */
@@ -150,50 +158,65 @@ class ListOfNewsTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+//
     override func viewWillAppear (_ animated: Bool) {
-        super.viewWillAppear(false)
-                ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
-                    var newItems: [LinkOfFeed] = []
-                    for child in snapshot.children {
-                        if let snapshot = child as? DataSnapshot,
-                            let linkFeed = LinkOfFeed(snapshot: snapshot) {
-                            newItems.append(linkFeed)
-                        }
+        
+        parseResultOfAllFeed.removeAll()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        ref.queryOrdered(byChild: "feeds-links").observe(.value, with: { snapshot in
+            var newItems: [LinkOfFeed] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let linkFeed = LinkOfFeed(snapshot: snapshot) {
+                    if linkFeed.isUsed {
+                        newItems.append(linkFeed)
                     }
-        
-                    self.listOfFeedsNews = newItems
-        
-                    for feedSource in self.listOfFeedsNews {
-                        if feedSource.isUsed {
-        
-                            var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
-        
-                            parser.parseAsync { [weak self] (result) in
-        
-                                if let rss = result.rssFeed {
-        
-                                    self?.parseResultOfEachFeed = rss
-        
-                                    DispatchQueue.main.async {
-                                        self?.tableView.reloadData()
-                                    }
-                                }
+                }
+            }
+            
+            self.listOfFeedsNews = newItems
+        //    self?.parseResultOfEachFeed = nil
+            for feedSource in self.listOfFeedsNews {
+                
+             //   self.parseResultOfEachFeed = nil
+                
+                var parser = FeedParser(URL: URL(string: feedSource.feedLink)!)
+                
+                var result = parser.parse()
+                    if result.isSuccess {
+                        if let rss = result.rssFeed {
+                            
+                          //  self.parseResultOfEachFeed = rss
+                            self.parseResultOfAllFeed.append(rss)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
                             }
                         }
                     }
-                })
+                    else {
+                        print("ERROR: Feeds parser failed")
+                    }
+            }
+        })
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if let identifier = segue.identifier {
+//            switch identifier {
+//            case "GoToNewsBrowser":
+//                if let newsBrowser = segue.destination as? NewsBrowserViewController {
+//                    newsBrowser.newsLinkDelegated = newsLinkToDelegate
+//                }
+//            default:
+//                break
+//            }
+//        }
+//    }
+//
     deinit {
         print("News VC deinited")
     }
